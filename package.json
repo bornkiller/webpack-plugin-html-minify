@@ -3,6 +3,9 @@
   "version": "0.2.0",
   "description": "A lite project to develop webpack plugin.",
   "main": "lib/index.js",
+  "engines": {
+    "node": ">=8.6.0"
+  },
   "scripts": {
     "precommit": "pretty-quick --staged",
     "prepush": "npm test",
@@ -48,6 +51,7 @@
     "yamljs": "^0.3.0"
   },
   "dependencies": {
-    "chalk": "^2.4.1"
+    "chalk": "^2.4.1",
+    "html-minifier": "^3.5.16"
   }
 }
