@@ -16,9 +16,7 @@ yarn add @coco-platform/webpack-plugin-html-minify --dev;
 
 ## Options
 
-### options.verbose
-
-Optional, default false. whether output hints resource into stdout.
+Please see https://github.com/kangax/html-minifier#options-quick-reference for complete options.
 
 ## Example
 
@@ -45,26 +43,9 @@ const configuration = {
         inject: 'body',
       },
     ]),
-    Reflect.construct(PlaceholderPlugin, [
-      {
-        verbose: true,
-      },
-    ]),
+    Reflect.construct(HtmlMinifyPlugin, []),
   ],
 };
-```
-
-Finally output:
-
-```html
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Webpack Plugin</title>``
-</head>
-<body>
-  <script type="text/javascript" src="/main.js"></script></body>
-</html>
 ```
 
 ## License
