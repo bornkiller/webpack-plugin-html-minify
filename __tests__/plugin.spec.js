@@ -10,35 +10,24 @@ const MemoryFS = require('memory-fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // Internal
-const Plugin = require('../lib');
+const HtmlMinifyPlugin = require('../lib');
 
 // Scope
 const mfs = Reflect.construct(MemoryFS, []);
 const configuration = {
   entry: path.resolve(__dirname, '__fixture__', 'index.js'),
-  resolve: {
-    extensions: ['.js', '.css'],
-  },
+  mode: 'development',
   output: {
     path: path.resolve(process.cwd(), 'dist'),
     filename: '[name].js',
     publicPath: '/',
   },
-  module: {
-    rules: [],
-  },
   plugins: [
-    Reflect.construct(HtmlWebpackPlugin, [
-      {
-        template: path.resolve(__dirname, '__fixture__', 'index.html'),
-        inject: 'body',
-      },
-    ]),
-    Reflect.construct(Plugin, [
-      {
-        verbose: true,
-      },
-    ]),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, '__fixture__', 'index.html'),
+      inject: 'body',
+    }),
+    new HtmlMinifyPlugin(),
   ],
 };
 
