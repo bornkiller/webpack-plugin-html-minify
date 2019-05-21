@@ -1,14 +1,13 @@
 {
   "name": "@coco-platform/webpack-plugin-html-minify",
   "version": "0.2.0",
-  "description": "A lite project to develop webpack plugin.",
+  "description": "A extension plugin for html-webpack-plugin, which replace built-in minify process for more clear cycle.",
   "main": "lib/index.js",
   "engines": {
     "node": ">=8.6.0"
   },
   "scripts": {
-    "precommit": "pretty-quick --staged",
-    "prepush": "npm test",
+    "pretest": "yarn add html-webpack-plugin webpack --peer",
     "test": "jest --config jest.config.js --coverage",
     "test:watch": "jest --config jest.config.js --watch"
   },
@@ -41,19 +40,23 @@
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.12.0",
-    "glob": "^7.1.2",
-    "handlebars": "^4.0.11",
-    "html-webpack-plugin": "^3.2.0",
     "husky": "^2.3.0",
     "jest": "^24.8.0",
     "memory-fs": "^0.4.1",
     "prettier": "^1.13.4",
-    "pretty-quick": "^1.6.0",
-    "webpack": "^4.10.2",
-    "yamljs": "^0.3.0"
+    "pretty-quick": "^1.6.0"
   },
   "dependencies": {
-    "chalk": "^2.4.1",
     "html-minifier": "^4.0.0"
+  },
+  "peerDependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.32.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged",
+      "pre-push": "npm test"
+    }
   }
 }
