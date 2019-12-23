@@ -36,7 +36,7 @@
   "homepage": "https://github.com/coco-platform/webpack-plugin-html-minify#README",
   "devDependencies": {
     "@types/jest": "^24.0.13",
-    "@types/node": "^12.0.2",
+    "@types/node": "^13.1.0",
     "eslint": "^6.0.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.12.0",
